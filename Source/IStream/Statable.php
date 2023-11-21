@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,82 +34,113 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Statable.
+ * Interface \igorora\Stream\IStream\Statable.
  *
  * Interface for statable input/output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Statable extends Stream
 {
     /**
      * Size is undefined.
+     *
+     * @const int
      */
-    public const SIZE_UNDEFINED = -1;
+    const SIZE_UNDEFINED = -1;
 
     /**
      * Get size.
+     *
+     * @return  int
      */
-    public function getSize(): int;
+    public function getSize();
 
     /**
      * Get informations about a file.
+     *
+     * @return  array
      */
-    public function getStatistic(): array;
+    public function getStatistic();
 
     /**
      * Get last access time of file.
+     *
+     * @return  int
      */
-    public function getATime(): int;
+    public function getATime();
 
     /**
      * Get inode change time of file.
+     *
+     * @return  int
      */
-    public function getCTime(): int;
+    public function getCTime();
 
     /**
      * Get file modification time.
+     *
+     * @return  int
      */
-    public function getMTime(): int;
+    public function getMTime();
 
     /**
      * Get file group.
+     *
+     * @return  int
      */
-    public function getGroup(): int;
+    public function getGroup();
 
     /**
      * Get file owner.
+     *
+     * @return  int
      */
-    public function getOwner(): int;
+    public function getOwner();
 
     /**
      * Get file permissions.
+     *
+     * @return  int
      */
-    public function getPermissions(): int;
+    public function getPermissions();
 
     /**
      * Check if the file is readable.
+     *
+     * @return  bool
      */
-    public function isReadable(): bool;
+    public function isReadable();
 
     /**
      * Check if the file is writable.
+     *
+     * @return  bool
      */
-    public function isWritable(): bool;
+    public function isWritable();
 
     /**
      * Check if the file is executable.
+     *
+     * @return  bool
      */
-    public function isExecutable(): bool;
+    public function isExecutable();
 
     /**
      * Clear file status cache.
+     *
+     * @return  void
      */
     public function clearStatisticCache();
 
     /**
      * Clear all files status cache.
+     *
+     * @return  void
      */
     public static function clearAllStatisticCaches();
 }

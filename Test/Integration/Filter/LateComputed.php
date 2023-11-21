@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Integration\Filter;
+namespace igorora\Stream\Test\Integration\Filter;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Filter as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Filter as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Integration\Filter\LateComputed.
+ * Class \igorora\Stream\Test\Integration\Filter\LateComputed.
  *
  * Test suite of the late computed filter class.
  *
@@ -58,7 +58,7 @@ class LateComputed extends Test\Integration\Suite
                 $name = 'custom',
                 SUT::register($name, CustomFilter::class),
 
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r')

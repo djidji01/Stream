@@ -36,13 +36,13 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit;
+namespace igorora\Stream\Test\Unit;
 
-use Hoa\Stream\Bucket as SUT;
-use Hoa\Test;
+use igorora\Stream\Bucket as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Bucket.
+ * Class \igorora\Stream\Test\Unit\Bucket.
  *
  * Test suite of the stream bucket.
  *

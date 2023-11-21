@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Filter;
+namespace igorora\Stream\Test\Unit\Filter;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Filter as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Filter as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Filter\Filter.
+ * Class \igorora\Stream\Test\Unit\Filter\Filter.
  *
  * Test suite of the filter class.
  *
@@ -134,7 +134,7 @@ class Filter extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = fopen('hoa://Test/Vfs/Foo?type=file', 'r'),
+                $stream = fopen('igorora://Test/Vfs/Foo?type=file', 'r'),
                 $name   = 'string.toupper'
             )
             ->when($result = SUT::append($stream, $name))
@@ -147,7 +147,7 @@ class Filter extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = fopen('hoa://Test/Vfs/Foo?type=file', 'r'),
+                $stream = fopen('igorora://Test/Vfs/Foo?type=file', 'r'),
                 $name   = 'string.toupper'
             )
             ->when($result = SUT::prepend($stream, $name))
@@ -160,7 +160,7 @@ class Filter extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = fopen('hoa://Test/Vfs/Foo?type=file', 'r'),
+                $stream = fopen('igorora://Test/Vfs/Foo?type=file', 'r'),
                 $name   = 'string.toupper',
                 $filter = SUT::append($stream, $name)
             )
@@ -174,7 +174,7 @@ class Filter extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = fopen('hoa://Test/Vfs/Foo?type=file', 'r'),
+                $stream = fopen('igorora://Test/Vfs/Foo?type=file', 'r'),
                 $name   = 'string.toupper',
                 $filter = SUT::append($stream, $name)
             )

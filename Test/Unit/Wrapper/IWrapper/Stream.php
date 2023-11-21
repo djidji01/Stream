@@ -36,13 +36,13 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Wrapper\IWrapper;
+namespace igorora\Stream\Test\Unit\Wrapper\IWrapper;
 
-use Hoa\Stream\Wrapper\IWrapper\Stream as SUT;
-use Hoa\Test;
+use igorora\Stream\Wrapper\IWrapper\Stream as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Wrapper\IWrapper\Stream.
+ * Class \igorora\Stream\Test\Unit\Wrapper\IWrapper\Stream.
  *
  * Test suite of the stream wrapper interface.
  *
@@ -53,7 +53,7 @@ class Stream extends Test\Unit\Suite
     public function case_is_a_valid_interface(): void
     {
         $this
-            ->when($result = new \Mock\Hoa\Stream\Wrapper\IWrapper\Stream())
+            ->when($result = new \Mock\igorora\Stream\Wrapper\IWrapper\Stream())
             ->then
                 ->object($result)
                     ->isInstanceOf(SUT::class);

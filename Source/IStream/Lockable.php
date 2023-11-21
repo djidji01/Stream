@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,13 +34,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Lockable.
+ * Interface \igorora\Stream\IStream\Lockable.
  *
  * Interface for lockable input/output.
  *
+ * @copyright  Copyright © 2007-2017 Hoa community
  * @license    New BSD License
  */
 interface Lockable extends Stream
@@ -52,28 +51,28 @@ interface Lockable extends Stream
      *
      * @const int
      */
-    public const LOCK_SHARED    = LOCK_SH;
+    const LOCK_SHARED    = LOCK_SH;
 
     /**
      * Acquire an exclusive lock (writer).
      *
      * @const int
      */
-    public const LOCK_EXCLUSIVE = LOCK_EX;
+    const LOCK_EXCLUSIVE = LOCK_EX;
 
     /**
      * Release a lock (shared or exclusive).
      *
      * @const int
      */
-    public const LOCK_RELEASE   = LOCK_UN;
+    const LOCK_RELEASE   = LOCK_UN;
 
     /**
      * If we do not want $this->lock() to block while locking.
      *
      * @const int
      */
-    public const LOCK_NO_BLOCK  = LOCK_NB;
+    const LOCK_NO_BLOCK  = LOCK_NB;
 
 
 
@@ -84,5 +83,5 @@ interface Lockable extends Stream
      * @param   int     $operation    Operation, use the self::LOCK_* constants.
      * @return  bool
      */
-    public function lock(int $operation): bool;
+    public function lock($operation);
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,79 +34,123 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Touchable.
+ * Interface \igorora\Stream\IStream\Touchable.
  *
  * Interface for touchable input/output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Touchable extends Stream
 {
     /**
      * Overwrite file if already exists.
+     *
+     * @const bool
      */
-    public const OVERWRITE             = true;
+    const OVERWRITE             = true;
 
     /**
      * Do not overwrite file if already exists.
+     *
+     * @const bool
      */
-    public const DO_NOT_OVERWRITE      = false;
+    const DO_NOT_OVERWRITE      = false;
 
     /**
      * Make directory if does not exist.
+     *
+     * @const bool
      */
-    public const MAKE_DIRECTORY        = true;
+    const MAKE_DIRECTORY        = true;
 
     /**
      * Do not make directory if does not exist.
+     *
+     * @const bool
      */
-    public const DO_NOT_MAKE_DIRECTORY = false;
+    const DO_NOT_MAKE_DIRECTORY = false;
 
 
 
     /**
      * Set access and modification time of file.
+     *
+     * @param   int     $time     Time. If equals to -1, time() should be used.
+     * @param   int     $atime    Access time. If equals to -1, $time should be
+     *                            used.
+     * @return  bool
      */
-    public function touch(int $time = -1, int $atime = -1): bool;
+    public function touch($time = -1, $atime = -1);
 
     /**
      * Copy file.
      * Return the destination file path if succeed, false otherwise.
+     *
+     * @param   string  $to       Destination path.
+     * @param   bool    $force    Force to copy if the file $to already exists.
+     *                            Use the self::*OVERWRITE constants.
+     * @return  bool
      */
-    public function copy(string $to, bool $force = self::DO_NOT_OVERWRITE): bool;
+    public function copy($to, $force = self::DO_NOT_OVERWRITE);
 
     /**
      * Move a file.
+     *
+     * @param   string  $name     New name.
+     * @param   bool    $force    Force to move if the file $name already
+     *                            exists.
+     *                            Use the self::*OVERWRITE constants.
+     * @param   bool    $mkdir    Force to make directory if does not exist.
+     *                            Use the self::*DIRECTORY constants.
+     * @return  bool
      */
     public function move(
-        string $name,
-        bool $force = self::DO_NOT_OVERWRITE,
-        bool $mkdir = self::DO_NOT_MAKE_DIRECTORY
-    ): bool;
+        $name,
+        $force = self::DO_NOT_OVERWRITE,
+        $mkdir = self::DO_NOT_MAKE_DIRECTORY
+    );
 
     /**
      * Delete a file.
+     *
+     * @return  bool
      */
-    public function delete(): bool;
+    public function delete();
 
     /**
      * Change file group.
+     *
+     * @param   mixed   $group    Group name or number.
+     * @return  bool
      */
-    public function changeGroup($group): bool;
+    public function changeGroup($group);
 
     /**
      * Change file mode.
+     *
+     * @param   int     $mode    Mode (in octal!).
+     * @return  bool
      */
-    public function changeMode(int $mode): bool;
+    public function changeMode($mode);
 
     /**
      * Change file owner.
+     *
+     * @param   mixed   $user    User.
+     * @return  bool
      */
-    public function changeOwner($user): bool;
+    public function changeOwner($user);
 
     /**
      * Change the current umask.
+     *
+     * @param   int     $umask    Umask (in octal!). If null, given the current
+     *                            umask value.
+     * @return  int
      */
-    public static function umask(int $umask = null): int;
+    public static function umask($umask = null);
 }

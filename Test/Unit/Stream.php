@@ -36,15 +36,15 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit;
+namespace igorora\Stream\Test\Unit;
 
-use Hoa\Event;
-use Hoa\Protocol;
-use Hoa\Stream as LUT;
-use Hoa\Test;
+use igorora\Event;
+use igorora\Protocol;
+use igorora\Stream as LUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Stream.
+ * Class \igorora\Stream\Test\Unit\Stream.
  *
  * Test suite of the stream class.
  *
@@ -108,9 +108,9 @@ class Stream extends Test\Unit\Suite
                     ->isTrue()
                 ->boolean($listener->listenerExists('size'))
                     ->isTrue()
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name))
                     ->isTrue()
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name . ':close-before'))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name . ':close-before'))
                     ->isTrue();
     }
 
@@ -190,9 +190,9 @@ class Stream extends Test\Unit\Suite
                     ->isEqualTo($resource)
                 ->variable($stream->getStreamContext())
                     ->isEqualTo($context)
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name))
                     ->isFalse()
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name . ':close-before'))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name . ':close-before'))
                     ->isFalse();
     }
 
@@ -236,9 +236,9 @@ class Stream extends Test\Unit\Suite
                     ->isIdenticalTo($result)
                 ->object($this->invoke($stream)->getListener())
                     ->isInstanceOf(Event\Listener::class)
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name))
                     ->isTrue()
-                ->boolean(Event::eventExists('hoa://Event/Stream/' . $name . ':close-before'))
+                ->boolean(Event::eventExists('igorora://Event/Stream/' . $name . ':close-before'))
                     ->isTrue()
                 ->integer($stream->getStreamBufferSize())
                     ->isEqualTo(SUT::DEFAULT_BUFFER_SIZE);
@@ -250,9 +250,9 @@ class Stream extends Test\Unit\Suite
 
         $this
             ->given(
-                $name   = 'hoa://Test/Vfs/Foo?type=file',
+                $name   = 'igorora://Test/Vfs/Foo?type=file',
                 $stream = new SUT($name),
-                Event::getEvent('hoa://Event/Stream/' . $name . ':close-before')->attach(
+                Event::getEvent('igorora://Event/Stream/' . $name . ':close-before')->attach(
                     function (Event\Bucket $bucket) use ($self, &$called): void {
                         $called = true;
 
@@ -647,11 +647,11 @@ class Stream extends Test\Unit\Suite
     public function case_get_stream_wrapper_name(): void
     {
         $this
-            ->given($stream = new SUT('hoa://Test/Vfs/Foo?type=file'))
+            ->given($stream = new SUT('igorora://Test/Vfs/Foo?type=file'))
             ->when($result = $stream->getStreamWrapperName())
             ->then
                 ->string($result)
-                    ->isEqualTo('hoa');
+                    ->isEqualTo('igorora');
     }
 
     public function case_get_stream_meta_data(): void
@@ -703,7 +703,7 @@ class Stream extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = new \Mock\Hoa\Stream\Test\Unit\SUTWithPublicClose(__FILE__),
+                $stream = new \Mock\igorora\Stream\Test\Unit\SUTWithPublicClose(__FILE__),
                 $this->calling($stream)->_close = function () use (&$called) {
                     $called = true;
 
@@ -720,7 +720,7 @@ class Stream extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = new \Mock\Hoa\Stream\Test\Unit\SUTWithPublicClose(__FILE__),
+                $stream = new \Mock\igorora\Stream\Test\Unit\SUTWithPublicClose(__FILE__),
                 $this->calling($stream)->_close = function () use (&$called) {
                     $called = true;
 
@@ -737,7 +737,7 @@ class Stream extends Test\Unit\Suite
     {
         $this
             ->given(
-                $stream = new \Mock\Hoa\Stream\Test\Unit\SUTWithPublicClose(__FILE__, null, true),
+                $stream = new \Mock\igorora\Stream\Test\Unit\SUTWithPublicClose(__FILE__, null, true),
                 $this->calling($stream)->_close = function () use (&$called) {
                     $called = true;
 
@@ -754,10 +754,10 @@ class Stream extends Test\Unit\Suite
     {
         $this
             ->given(
-                $name   = 'hoa://Test/Vfs/Foo?type=file',
+                $name   = 'igorora://Test/Vfs/Foo?type=file',
                 $stream = new SUT($name)
             )
-            ->when($result = Protocol\Protocol::getInstance()->resolve('hoa://Library/Stream#' . $name))
+            ->when($result = Protocol\Protocol::getInstance()->resolve('igorora://Library/Stream#' . $name))
             ->then
                 ->object($result)
                     ->isIdenticalTo($stream);
@@ -766,8 +766,8 @@ class Stream extends Test\Unit\Suite
     public function case_protocol_reach_unknown_id(): void
     {
         $this
-            ->given($name = 'hoa://Test/Vfs/Foo?type=file')
-            ->when($result = Protocol\Protocol::getInstance()->resolve('hoa://Library/Stream#' . $name))
+            ->given($name = 'igorora://Test/Vfs/Foo?type=file')
+            ->when($result = Protocol\Protocol::getInstance()->resolve('igorora://Library/Stream#' . $name))
             ->then
                 ->variable($result)
                     ->isNull();

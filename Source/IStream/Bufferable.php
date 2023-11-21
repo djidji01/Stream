@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,40 +34,55 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Bufferable.
+ * Interface \igorora\Stream\IStream\Bufferable.
  *
  * Interface for bufferable streams. It's complementary to native buffer support
- * of Hoa\Stream (please, see *StreamBuffer*() methods). Classes implementing
+ * of igorora\Stream (please, see *StreamBuffer*() methods). Classes implementing
  * this interface are able to create nested buffers, flush them etc.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Bufferable extends Stream
 {
     /**
      * Start a new buffer.
      * The callable acts like a light filter.
+     *
+     * @param   mixed   $callable    Callable.
+     * @param   int     $size        Size.
+     * @return  int
      */
-    public function newBuffer(callable $callable = null, int $size = null): int;
+    public function newBuffer($callable = null, $size = null);
 
     /**
      * Flush the buffer.
+     *
+     * @return  void
      */
     public function flush();
 
     /**
      * Delete buffer.
+     *
+     * @return  bool
      */
-    public function deleteBuffer(): bool;
+    public function deleteBuffer();
 
     /**
      * Get bufffer level.
+     *
+     * @return  int
      */
-    public function getBufferLevel(): int;
+    public function getBufferLevel();
 
     /**
      * Get buffer size.
+     *
+     * @return  int
      */
-    public function getBufferSize(): int;
+    public function getBufferSize();
 }

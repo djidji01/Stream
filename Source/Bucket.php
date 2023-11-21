@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,37 +34,50 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream;
+namespace igorora\Stream;
 
 /**
- * Class \Hoa\Stream\Bucket.
+ * Class \igorora\Stream\Bucket.
  *
  * Manipulate stream buckets through brigades.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 class Bucket
 {
     /**
      * Whether the stream is already a brigade.
+     *
+     * @const bool
      */
-    public const IS_A_BRIGADE = true;
+    const IS_A_BRIGADE = true;
 
     /**
      * Whether the stream is not a brigade.
+     *
+     * @const bool
      */
-    public const IS_A_STREAM  = false;
+    const IS_A_STREAM  = false;
 
     /**
      * Type of the bucket.
+     *
+     * @var bool
      */
     protected $_type    = null;
 
     /**
      * Brigade.
+     *
+     * @var resource
      */
     protected $_brigade = null;
 
     /**
      * Bucket.
+     *
+     * @var resource
      */
     protected $_bucket  = null;
 
@@ -76,8 +87,13 @@ class Bucket
      * Set a brigade.
      * If a stream is given (with the constant `self::IS_A_STREAM`), it will
      * create a brigade automatically.
+     *
+     * @param   resource  &$brigade    A stream or a brigade.
+     * @param   bool      $is          Specify if `$brigade` is a stream or a
+     *                                 brigade, given by `self::IS_A_*` constant.
+     * @param   string    $buffer      Stream buffer.
      */
-    public function __construct(&$brigade, bool $is = self::IS_A_BRIGADE, string $buffer = '')
+    public function __construct(&$brigade, $is = self::IS_A_BRIGADE, $buffer = '')
     {
         $this->setType($is);
 
@@ -95,8 +111,10 @@ class Bucket
     /**
      * Test the end-of-bucket.
      * When testing, set the new bucket object.
+     *
+     * @return  bool
      */
-    public function eob(): bool
+    public function eob()
     {
         $this->_bucket = null;
 
@@ -105,6 +123,9 @@ class Bucket
 
     /**
      * Append bucket to the brigade.
+     *
+     * @param   \igorora\Stream\Bucket  $bucket    Bucket to add.
+     * @return  void
      */
     public function append(Bucket $bucket)
     {
@@ -115,6 +136,9 @@ class Bucket
 
     /**
      * Prepend bucket to the brigade.
+     *
+     * @param   \igorora\Stream\Bucket  $bucket    Bucket to add.
+     * @return  void
      */
     public function prepend(Bucket $bucket)
     {
@@ -125,8 +149,11 @@ class Bucket
 
     /**
      * Set type.
+     *
+     * @param   bool  $type    Type. Please, see self::IS_A_* constants.
+     * @return  bool
      */
-    protected function setType(bool $type): ?bool
+    protected function setType($type)
     {
         $old         = $this->_type;
         $this->_type = $type;
@@ -136,16 +163,21 @@ class Bucket
 
     /**
      * Get type.
+     *
+     * @return  bool
      */
-    public function getType(): ?bool
+    public function getType()
     {
         return $this->_type;
     }
 
     /**
      * Set bucket data.
+     *
+     * @param   string  $data    Data to set.
+     * @return  string
      */
-    public function setData(string $data): ?string
+    public function setData($data)
     {
         $old                        = $this->getBucket()->data;
         $this->getBucket()->data    = $data;
@@ -156,8 +188,10 @@ class Bucket
 
     /**
      * Get bucket data.
+     *
+     * @return  string
      */
-    public function getData(): ?string
+    public function getData()
     {
         if (null === $this->getBucket()) {
             return null;
@@ -168,8 +202,10 @@ class Bucket
 
     /**
      * Get bucket length.
+     *
+     * @return  int
      */
-    public function getLength(): int
+    public function getLength()
     {
         if (null === $this->getBucket()) {
             return 0;
@@ -180,6 +216,9 @@ class Bucket
 
     /**
      * Set the brigade.
+     *
+     * @param   resource   &$brigade    Brigade to add.
+     * @return  resource
      */
     protected function setBrigade(&$brigade)
     {
@@ -191,6 +230,8 @@ class Bucket
 
     /**
      * Get the brigade.
+     *
+     * @return  resource
      */
     public function getBrigade()
     {
@@ -199,6 +240,9 @@ class Bucket
 
     /**
      * Set bucket.
+     *
+     * @param   resource  $bucket    Bucket.
+     * @return  resource
      */
     protected function setBucket($bucket)
     {
@@ -210,6 +254,8 @@ class Bucket
 
     /**
      * Get the current bucket.
+     *
+     * @return  mixed
      */
     protected function getBucket()
     {

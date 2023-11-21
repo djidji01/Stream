@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,62 +34,96 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Out.
+ * Interface \igorora\Stream\IStream\Out.
  *
  * Interface for output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Out extends Stream
 {
     /**
      * Write n characters.
+     *
+     * @param   string  $string    String.
+     * @param   int     $length    Length.
+     * @return  mixed
      */
-    public function write(string $string, int $length);
+    public function write($string, $length);
 
     /**
      * Write a string.
+     *
+     * @param   string  $string    String.
+     * @return  mixed
      */
-    public function writeString(string $string);
+    public function writeString($string);
 
     /**
      * Write a character.
+     *
+     * @param   string  $character    Character.
+     * @return  mixed
      */
-    public function writeCharacter(string $character);
+    public function writeCharacter($character);
 
     /**
      * Write a boolean.
+     *
+     * @param   bool    $boolean    Boolean.
+     * @return  mixed
      */
-    public function writeBoolean(bool $boolean);
+    public function writeBoolean($boolean);
 
     /**
      * Write an integer.
+     *
+     * @param   int     $integer    Integer.
+     * @return  mixed
      */
-    public function writeInteger(int $integer);
+    public function writeInteger($integer);
 
     /**
      * Write a float.
+     *
+     * @param   float   $float    Float.
+     * @return  mixed
      */
-    public function writeFloat(float $float);
+    public function writeFloat($float);
 
     /**
      * Write an array.
+     *
+     * @param   array   $array    Array.
+     * @return  mixed
      */
     public function writeArray(array $array);
 
     /**
      * Write a line.
+     *
+     * @param   string  $line    Line.
+     * @return  mixed
      */
-    public function writeLine(string $line);
+    public function writeLine($line);
 
     /**
      * Write all, i.e. as much as possible.
+     *
+     * @param   string  $string    String.
+     * @return  mixed
      */
-    public function writeAll(string $string);
+    public function writeAll($string);
 
     /**
      * Truncate a stream to a given length.
+     *
+     * @param   int     $size    Size.
+     * @return  bool
      */
-    public function truncate(int $size): bool;
+    public function truncate($size);
 }

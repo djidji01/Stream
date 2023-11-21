@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,20 +34,24 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Wrapper\IWrapper;
+namespace igorora\Stream\Wrapper\IWrapper;
 
-use Hoa\Consistency;
+use igorora\Consistency\Consistency;
 
 /**
- * Interface \Hoa\Stream\Wrapper\IWrapper.
+ * Interface \igorora\Stream\Wrapper\IWrapper.
  *
  * Interface for stream wrapper class.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface IWrapper extends File, Stream
 {
     /**
      * Constructs a new stream wrapper.
      * Called when opening the stream wrapper, right before self::stream_open().
+     *
      */
     public function __construct();
 }
@@ -57,4 +59,4 @@ interface IWrapper extends File, Stream
 /**
  * Flex entity.
  */
-Consistency::flexEntity(IWrapper::class);
+Consistency::flexEntity('igorora\Stream\Wrapper\IWrapper\IWrapper');

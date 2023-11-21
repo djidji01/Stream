@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Integration;
+namespace igorora\Stream\Test\Integration;
 
-use Hoa\Event;
-use Hoa\Stream as LUT;
-use Hoa\Test;
+use igorora\Event;
+use igorora\Stream as LUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Integration\Stream.
+ * Class \igorora\Stream\Test\Integration\Stream.
  *
  * Test suite of the stream class.
  */

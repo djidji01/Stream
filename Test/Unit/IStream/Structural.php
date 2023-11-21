@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\IStream;
+namespace igorora\Stream\Test\Unit\IStream;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\IStream\Structural as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\IStream\Structural as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\IStream\Structural.
+ * Class \igorora\Stream\Test\Unit\IStream\Structural.
  *
  * Test suite of the structural interface.
  *
@@ -54,7 +54,7 @@ class Structural extends Test\Unit\Suite
     public function case_is_a_valid_interface(): void
     {
         $this
-            ->when($result = new \Mock\Hoa\Stream\IStream\Structural())
+            ->when($result = new \Mock\igorora\Stream\IStream\Structural())
             ->then
                 ->object($result)
                     ->isInstanceOf(SUT::class)

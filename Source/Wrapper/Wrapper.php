@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,21 +34,32 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Wrapper;
+namespace igorora\Stream\Wrapper;
 
-use Hoa\Consistency;
+use igorora\Consistency\Consistency;
 
 /**
- * Class \Hoa\Stream\Wrapper.
+ * Class \igorora\Stream\Wrapper.
  *
  * Manipulate wrappers.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 class Wrapper
 {
     /**
      * Register a wrapper.
+     *
+     * @param   string  $protocol     The wrapper name to be registered.
+     * @param   string  $className    Class name which implements the protocol.
+     * @param   int     $flags        Should be set to `STREAM_IS_URL` if
+     *                                `$protocol` is a URL protocol. Default is 0,
+     *                                local stream.
+     * @return  bool
+     * @throws  \igorora\Stream\Wrapper\Exception
      */
-    public static function register(string $protocol, string $className, int $flags = 0): bool
+    public static function register($protocol, $className, $flags = 0)
     {
         if (true === self::isRegistered($protocol)) {
             throw new Exception(
@@ -74,8 +83,11 @@ class Wrapper
 
     /**
      * Unregister a wrapper.
+     *
+     * @param   string  $protocol    The wrapper name to be unregistered.
+     * @return  bool
      */
-    public static function unregister(string $protocol): bool
+    public static function unregister($protocol)
     {
         // Silent errors if `$protocol` does not exist. This function already
         // returns `false` in this case, which is the strict expected
@@ -85,8 +97,11 @@ class Wrapper
 
     /**
      * Restore a previously unregistered build-in wrapper.
+     *
+     * @param   string  $protocol    The wrapper name to be restored.
+     * @return  bool
      */
-    public static function restore(string $protocol): bool
+    public static function restore($protocol)
     {
         // Silent errors if `$protocol` does not exist. This function already
         // returns `false` in this case, which is the strict expected
@@ -96,16 +111,21 @@ class Wrapper
 
     /**
      * Check if a protocol is registered or not.
+     *
+     * @param   string  $protocol    Protocol name.
+     * @return  bool
      */
-    public static function isRegistered(string $protocol): bool
+    public static function isRegistered($protocol)
     {
         return in_array($protocol, self::getRegistered());
     }
 
     /**
      * Get all registered wrapper.
+     *
+     * @return  array
      */
-    public static function getRegistered(): array
+    public static function getRegistered()
     {
         return stream_get_wrappers();
     }
@@ -114,4 +134,4 @@ class Wrapper
 /**
  * Flex entity.
  */
-Consistency::flexEntity(Wrapper::class);
+Consistency::flexEntity('igorora\Stream\Wrapper\Wrapper');

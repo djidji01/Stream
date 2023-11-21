@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,45 +34,60 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Filter;
+namespace igorora\Stream\Filter;
 
-use Hoa\Consistency;
-use Hoa\Stream;
+use igorora\Consistency\Consistency;
+use igorora\Stream\Stream;
 
 /**
- * Class \Hoa\Stream\Filter.
+ * Class \igorora\Stream\Filter.
  *
  * Proposes some methods to handle filter.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 abstract class Filter extends Stream
 {
     /**
      * Overwrite filter if already exists.
+     *
+     * @const bool
      */
-    public const OVERWRITE        = true;
+    const OVERWRITE        = true;
 
     /**
      * Do not overwrite filter if already exists.
+     *
+     * @const bool
      */
-    public const DO_NOT_OVERWRITE = false;
+    const DO_NOT_OVERWRITE = false;
 
     /**
      * Filter should only be applied when reading.
+     *
+     * @const int
      */
-    public const READ             = STREAM_FILTER_READ;
+    const READ             = STREAM_FILTER_READ;
 
     /**
      * Filter should only be applied when writing.
+     *
+     * @const int
      */
-    public const WRITE            = STREAM_FILTER_WRITE;
+    const WRITE            = STREAM_FILTER_WRITE;
 
     /**
      * Filter should be applied when reading and writing.
+     *
+     * @const int
      */
-    public const READ_AND_WRITE   = STREAM_FILTER_ALL;
+    const READ_AND_WRITE   = STREAM_FILTER_ALL;
 
     /**
      * All resources with at least one filter registered.
+     *
+     * @var array
      */
     protected static $_resources = [];
 
@@ -82,14 +95,21 @@ abstract class Filter extends Stream
 
     /**
      * Register a stream filter.
+     *
+     * @param   string  $name         Filter name.
+     * @param   mixed   $class        Class name or instance.
+     * @param   bool    $overwrite    Overwrite filter if already exists or
+     *                                not. Given by self::*OVERWRITE constants.
+     * @return  bool
+     * @throws  \igorora\Stream\Filter\Exception
      */
     public static function register(
-        string $name,
+        $name,
         $class,
-        bool $overwrite = self::DO_NOT_OVERWRITE
-    ): bool {
+        $overwrite = self::DO_NOT_OVERWRITE
+    ) {
         if ($overwrite === self::DO_NOT_OVERWRITE &&
-            true === self::isRegistered($name)) {
+            true       === self::isRegistered($name)) {
             throw new Exception('Filter %s is already registered.', 0, $name);
         }
 
@@ -119,11 +139,20 @@ abstract class Filter extends Stream
 
     /**
      * Append a filter to the list of filters.
+     *
+     * @param   mixed       $stream        Stream which received the filter.
+     *                                     Should be resource or an object
+     *                                     of kind `igorora\Stream`.
+     * @param   string      $name          Filter name.
+     * @param   int         $mode          `self::READ`, `self::WRITE` or
+     *                                     `self::READ_AND_WRITE`.
+     * @param   mixed       $parameters    Parameters.
+     * @return  resource
      */
     public static function append(
         $stream,
-        string $name,
-        int $mode       = self::READ,
+        $name,
+        $mode       = self::READ,
         $parameters = null
     ) {
         if ($stream instanceof Stream) {
@@ -148,12 +177,20 @@ abstract class Filter extends Stream
 
     /**
      * Prepend a filter to the list of filters.
+     *
+     * @param   mixed       $stream        Stream which received the filter.
+     *                                     Should be resource or an object
+     *                                     \igorora\Stream.
+     * @param   string      $name          Filter name.
+     * @param   int         $mode          self::READ, self::WRITE or
+     *                                     self::READ_AND_WRITE.
+     * @param   mixed       $parameters    Parameters.
+     * @return  resource
      */
     public static function prepend(
         $stream,
-        string $name,
-        int $mode = self::READ,
-        $parameters = null
+        $name,
+        $mode = self::READ, $parameters = null
     ) {
         if ($stream instanceof Stream) {
             $stream = $stream->getStream();
@@ -177,8 +214,12 @@ abstract class Filter extends Stream
 
     /**
      * Delete a filter.
+     *
+     * @param   mixed   $streamFilter    Stream filter resource or name.
+     * @return  bool
+     * @throws  \igorora\Stream\Filter\Exception
      */
-    public static function remove($streamFilter): bool
+    public static function remove($streamFilter)
     {
         if (!is_resource($streamFilter)) {
             if (isset(self::$_resources[$streamFilter])) {
@@ -198,16 +239,21 @@ abstract class Filter extends Stream
 
     /**
      * Check if a filter is already registered or not.
+     *
+     * @param   string  $name    Filter name.
+     * @return  bool
      */
-    public static function isRegistered(string $name): bool
+    public static function isRegistered($name)
     {
         return in_array($name, self::getRegistered());
     }
 
     /**
      * Get all registered filer names.
+     *
+     * @return  array
      */
-    public static function getRegistered(): array
+    public static function getRegistered()
     {
         return stream_get_filters();
     }
@@ -216,4 +262,4 @@ abstract class Filter extends Stream
 /**
  * Flex entity.
  */
-Consistency::flexEntity(Filter::class);
+Consistency::flexEntity('igorora\Stream\Filter\Filter');

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,57 +34,85 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Structural.
+ * Interface \igorora\Stream\IStream\Structural.
  *
  * Interface for structural input/output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Structural extends Stream
 {
     /**
      * Select root of the document: :root.
+     *
+     * @return  \igorora\Stream\IStream\Structural
      */
-    public function selectRoot(): self;
+    public function selectRoot();
 
     /**
      * Select any elements: *.
+     *
+     * @return  array
      */
-    public function selectAnyElements(): array;
+    public function selectAnyElements();
 
     /**
      * Select elements of type E: E.
+     *
+     * @param   string  $E    Element E.
+     * @return  array
      */
-    public function selectElements(string $E = null): array;
+    public function selectElements($E = null);
 
     /**
      * Select F elements descendant of an E element: E F.
+     *
+     * @param   string  $F    Element F.
+     * @return  array
      */
-    public function selectDescendantElements(string $F = null): array;
+    public function selectDescendantElements($F = null);
 
     /**
      * Select F elements children of an E element: E > F.
+     *
+     * @param   string  $F    Element F.
+     * @return  array
      */
-    public function selectChildElements(string $F = null): array;
+    public function selectChildElements($F = null);
 
     /**
      * Select an F element immediately preceded by an E element: E + F.
+     *
+     * @param   string  $F    Element F.
+     * @return  \igorora\Stream\IStream\Structural
      */
-    public function selectAdjacentSiblingElement(string $F): Structural;
+    public function selectAdjacentSiblingElement($F);
 
     /**
      * Select F elements preceded by an E element: E ~ F.
+     *
+     * @param   string  $F    Element F.
+     * @return  array
      */
-    public function selectSiblingElements(string $F = null): array;
+    public function selectSiblingElements($F = null);
 
     /**
      * Execute a query selector and return the first result.
+     *
+     * @param   string  $query    Query.
+     * @return  \igorora\Stream\IStream\Structural
      */
-    public function querySelector(string $query): Structural;
+    public function querySelector($query);
 
     /**
      * Execute a query selector and return one or many results.
+     *
+     * @param   string  $query    Query.
+     * @return  array
      */
-    public function querySelectorAll(string $query): array;
+    public function querySelectorAll($query);
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,44 +34,61 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Pointable.
+ * Interface \igorora\Stream\IStream\Pointable.
  *
  * Interface for pointable input/output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Pointable extends Stream
 {
     /**
      * Set position equal to $offset bytes.
+     *
+     * @const int
      */
-    public const SEEK_SET     = SEEK_SET;
+    const SEEK_SET     = SEEK_SET;
 
     /**
      * Set position to current location plus $offset.
+     *
+     * @const int
      */
-    public const SEEK_CURRENT = SEEK_CUR;
+    const SEEK_CURRENT = SEEK_CUR;
 
     /**
      * Set position to end-of-file plus $offset.
+     *
+     * @const int
      */
-    public const SEEK_END     = SEEK_END;
+    const SEEK_END     = SEEK_END;
 
 
 
     /**
      * Rewind the position of a stream pointer.
+     *
+     * @return  bool
      */
-    public function rewind(): bool;
+    public function rewind();
 
     /**
      * Seek on a stream pointer.
+     *
+     * @param   int     $offset    Offset (negative value should be supported).
+     * @param   int     $whence    Whence, use the self::SEEK_* constants.
+     * @return  int
      */
-    public function seek(int $offset, int $whence = self::SEEK_SET): int;
+    public function seek($offset, $whence = self::SEEK_SET);
 
     /**
      * Get the current position of the stream pointer.
+     *
+     * @return  int
      */
-    public function tell(): int;
+    public function tell();
 }

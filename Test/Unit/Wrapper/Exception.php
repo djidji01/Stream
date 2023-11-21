@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Wrapper;
+namespace igorora\Stream\Test\Unit\Wrapper;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Wrapper\Exception as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Wrapper\Exception as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Wrapper\Exception.
+ * Class \igorora\Stream\Test\Unit\Wrapper\Exception.
  *
  * Test suite of the wrapper exception.
  *
@@ -51,7 +51,7 @@ use Hoa\Test;
  */
 class Exception extends Test\Unit\Suite
 {
-    public function case_hoa_exception(): void
+    public function case_igorora_exception(): void
     {
         $this
             ->when($result = new SUT('foo', 0))

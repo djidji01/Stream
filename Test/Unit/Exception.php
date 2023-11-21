@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit;
+namespace igorora\Stream\Test\Unit;
 
-use Hoa\Exception as HoaException;
-use Hoa\Stream\Exception as SUT;
-use Hoa\Test;
+use igorora\Exception as IgororaException;
+use igorora\Stream\Exception as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Exception.
+ * Class \igorora\Stream\Test\Unit\Exception.
  *
  * Test suite of the exception.
  *
@@ -51,12 +51,12 @@ use Hoa\Test;
  */
 class Exception extends Test\Unit\Suite
 {
-    public function case_hoa_exception(): void
+    public function case_igorora_exception(): void
     {
         $this
             ->when($result = new SUT('foo', 0))
             ->then
                 ->object($result)
-                    ->isInstanceOf(HoaException::class);
+                    ->isInstanceOf(IgororaException::class);
     }
 }

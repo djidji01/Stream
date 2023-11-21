@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit;
+namespace igorora\Stream\Test\Unit;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Context as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Context as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Context.
+ * Class \igorora\Stream\Test\Unit\Context.
  *
  * Test suite of the context stream class.
  *

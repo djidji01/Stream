@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,22 +34,29 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\IStream;
+namespace igorora\Stream\IStream;
 
 /**
- * Interface \Hoa\Stream\IStream\Pathable.
+ * Interface \igorora\Stream\IStream\Pathable.
  *
  * Interface for pathable input/output.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 interface Pathable extends Stream
 {
     /**
      * Get filename component of path.
+     *
+     * @return  string
      */
-    public function getBasename(): string;
+    public function getBasename();
 
     /**
      * Get directory name component of path.
+     *
+     * @return  string
      */
-    public function getDirname(): string;
+    public function getDirname();
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,22 +34,29 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream;
+namespace igorora\Stream;
 
 /**
- * Class \Hoa\Stream\Composite.
+ * Class \igorora\Stream\Composite.
  *
  * Declare a composite stream, i.e. a stream that uses a stream.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
 abstract class Composite
 {
     /**
      * Current stream.
+     *
+     * @var mixed
      */
     protected $_stream      = null;
 
     /**
      * Inner stream.
+     *
+     * @var \igorora\Stream
      */
     protected $_innerStream = null;
 
@@ -59,6 +64,9 @@ abstract class Composite
 
     /**
      * Set current stream.
+     *
+     * @param   object  $stream    Current stream.
+     * @return  object
      */
     protected function setStream($stream)
     {
@@ -70,6 +78,8 @@ abstract class Composite
 
     /**
      * Get current stream.
+     *
+     * @return  object
      */
     public function getStream()
     {
@@ -78,8 +88,11 @@ abstract class Composite
 
     /**
      * Set inner stream.
+     *
+     * @param   \igorora\Stream  $innerStream    Inner stream.
+     * @return  \igorora\Stream
      */
-    protected function setInnerStream(Stream $innerStream): ?Stream
+    protected function setInnerStream(Stream $innerStream)
     {
         $old                = $this->_innerStream;
         $this->_innerStream = $innerStream;
@@ -89,8 +102,10 @@ abstract class Composite
 
     /**
      * Get inner stream.
+     *
+     * @return  \igorora\Stream
      */
-    public function getInnerStream(): ?Stream
+    public function getInnerStream()
     {
         return $this->_innerStream;
     }

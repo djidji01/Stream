@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Wrapper;
+namespace igorora\Stream\Test\Unit\Wrapper;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Wrapper\Wrapper as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Wrapper\Wrapper as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Wrapper\Wrapper.
+ * Class \igorora\Stream\Test\Unit\Wrapper\Wrapper.
  *
  * Test suite of the wrapper class.
  *
@@ -163,7 +163,7 @@ class Wrapper extends Test\Unit\Suite
                         'glob',
                         'data',
                         'http',
-                        'hoa'
+                        'igorora'
                     ]);
     }
 

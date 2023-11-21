@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Filter;
+namespace igorora\Stream\Test\Unit\Filter;
 
-use Hoa\Stream as LUT;
-use Hoa\Test;
-use Mock\Hoa\Stream\Filter\Basic as SUT;
+use igorora\Stream as LUT;
+use igorora\Test;
+use Mock\igorora\Stream\Filter\Basic as SUT;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Filter\Basic.
+ * Class \igorora\Stream\Test\Unit\Filter\Basic.
  *
  * Test suite of the basic filter class.
  *

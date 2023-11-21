@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\Wrapper\IWrapper;
+namespace igorora\Stream\Test\Unit\Wrapper\IWrapper;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\Wrapper\IWrapper\IWrapper as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\Wrapper\IWrapper\IWrapper as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Wrapper\IWrapper\IWrapper.
+ * Class \igorora\Stream\Test\Unit\Wrapper\IWrapper\IWrapper.
  *
  * Test suite of the wrapper parent interface.
  *
@@ -54,7 +54,7 @@ class IWrapper extends Test\Unit\Suite
     public function case_is_a_valid_interface(): void
     {
         $this
-            ->when($result = new \Mock\Hoa\Stream\Wrapper\IWrapper\IWrapper())
+            ->when($result = new \Mock\igorora\Stream\Wrapper\IWrapper\IWrapper())
             ->then
                 ->object($result)
                     ->isInstanceOf(SUT::class)

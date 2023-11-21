@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\IStream;
+namespace igorora\Stream\Test\Unit\IStream;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\IStream\Bufferable as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\IStream\Bufferable as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\IStream\Bufferable.
+ * Class \igorora\Stream\Test\Unit\IStream\Bufferable.
  *
  * Test suite of the bufferable interface.
  *
@@ -54,7 +54,7 @@ class Bufferable extends Test\Unit\Suite
     public function case_is_a_valid_interface(): void
     {
         $this
-            ->when($result = new \Mock\Hoa\Stream\IStream\Bufferable())
+            ->when($result = new \Mock\igorora\Stream\IStream\Bufferable())
             ->then
                 ->object($result)
                     ->isInstanceOf(SUT::class)

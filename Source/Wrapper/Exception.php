@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,15 +34,17 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Wrapper;
+namespace igorora\Stream\Wrapper;
 
-use Hoa\Stream;
 
 /**
- * Class \Hoa\Stream\Wrapper\Exception.
+ * Class \igorora\Stream\Wrapper\Exception.
  *
- * Extending the \Hoa\Stream\Exception class.
+ * Extending the \igorora\Stream\Exception class.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
-class Exception extends Stream\Exception
+class Exception extends \igorora\Stream\Exception
 {
 }

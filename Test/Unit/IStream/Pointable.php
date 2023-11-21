@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit\IStream;
+namespace igorora\Stream\Test\Unit\IStream;
 
-use Hoa\Stream as LUT;
-use Hoa\Stream\IStream\Pointable as SUT;
-use Hoa\Test;
+use igorora\Stream as LUT;
+use igorora\Stream\IStream\Pointable as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Unit\IStream\Pointable.
+ * Class \igorora\Stream\Test\Unit\IStream\Pointable.
  *
  * Test suite of the pointable interface.
  *
@@ -54,7 +54,7 @@ class Pointable extends Test\Unit\Suite
     public function case_is_a_valid_interface(): void
     {
         $this
-            ->when($result = new \Mock\Hoa\Stream\IStream\Pointable())
+            ->when($result = new \Mock\igorora\Stream\IStream\Pointable())
             ->then
                 ->object($result)
                     ->isInstanceOf(SUT::class)

@@ -36,13 +36,13 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Integration\Filter;
+namespace igorora\Stream\Test\Integration\Filter;
 
-use Hoa\Stream\Filter as SUT;
-use Hoa\Test;
+use igorora\Stream\Filter as SUT;
+use igorora\Test;
 
 /**
- * Class \Hoa\Stream\Test\Integration\Filter\Filter.
+ * Class \igorora\Stream\Test\Integration\Filter\Filter.
  *
  * Test suite of the filter class.
  *
@@ -54,7 +54,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),
@@ -73,7 +73,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),
@@ -92,7 +92,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),
@@ -113,7 +113,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),
@@ -134,7 +134,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),
@@ -155,7 +155,7 @@ class Filter extends Test\Integration\Suite
     {
         $this
             ->given(
-                $filename = 'hoa://Test/Vfs/Foo?type=file',
+                $filename = 'igorora://Test/Vfs/Foo?type=file',
                 $content  = 'Hello, World!',
                 file_put_contents($filename, $content),
                 $stream = fopen($filename, 'r'),

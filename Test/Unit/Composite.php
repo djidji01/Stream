@@ -36,14 +36,14 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Stream\Test\Unit;
+namespace igorora\Stream\Test\Unit;
 
-use Hoa\Stream as LUT;
-use Hoa\Test;
-use Mock\Hoa\Stream\Composite as SUT;
+use igorora\Stream as LUT;
+use igorora\Test;
+use Mock\igorora\Stream\Composite as SUT;
 
 /**
- * Class \Hoa\Stream\Test\Unit\Composite.
+ * Class \igorora\Stream\Test\Unit\Composite.
  *
  * Test suite of the composite stream.
  *
